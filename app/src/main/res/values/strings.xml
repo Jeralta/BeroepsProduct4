@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">BP4</string>
-    <string name="inschrijven_vrijwilliger">Inschrijven Vrijwilliger</string>
-    <string name="toevoegen_buurthuis">Toevoegen Buurthuis</string>
-    <string name="inschrijven_cursist">Inschrijven Cursist</string>
+    <string name="vrijwilliger_weergeven">Vrijwilliger weergeven</string>
+    <string name="buurthuis_weergeven">Buurthuis weergeven</string>
+    <string name="cursist_weergeven">Cursist weergeven</string>
+    <string name="les_weergeven">Les weergeven</string>
 </resources>
