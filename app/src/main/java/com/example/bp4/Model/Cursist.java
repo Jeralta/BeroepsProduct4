@@ -23,6 +23,7 @@ public class Cursist implements Parcelable {
     private String TELNR;
     private String LANDVHERKOMST;
     private String WOONPLAATS;
+
     public Cursist(Parcel in) {
         this.VOORNAAM = in.readString();
         this.ACHTERNAAM = in.readString();
@@ -49,7 +50,7 @@ public class Cursist implements Parcelable {
         this.LANDVHERKOMST = LANDVHERKOMST;
         this.WOONPLAATS = WOONPLAATS;
     }
-
+    // getters and setters van strings
     public String getIDCURSIST() {
         return IDCURSIST;
     }

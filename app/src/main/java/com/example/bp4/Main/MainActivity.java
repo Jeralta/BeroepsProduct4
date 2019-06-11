@@ -14,18 +14,19 @@ import com.example.bp4.View.OverzichtVrijwilliger;
 
 public class MainActivity extends AppCompatActivity {
     private Button buttonVrijwilliger, buttonCursist, buttonBuurthuis, buttonLes;
+    // button met action event
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        buttonVrijwilliger= (Button) findViewById(R.id.buttonVrijwilliger);
+        buttonVrijwilliger = (Button) findViewById(R.id.buttonVrijwilliger);
         buttonCursist = (Button) findViewById(R.id.buttonCursist);
         buttonBuurthuis = (Button) findViewById(R.id.buttonBuurthuis);
         buttonLes = (Button) findViewById(R.id.buttonLes);
 
-        buttonVrijwilliger.setOnClickListener(new View.OnClickListener() {
+        buttonVrijwilliger.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
                 showVrijwilliger();
             }
         });
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 showCursist();
             }
         });
-
         buttonBuurthuis.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         buttonLes.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                showBuurthuis();
+                showLes();
             }
         });
     }

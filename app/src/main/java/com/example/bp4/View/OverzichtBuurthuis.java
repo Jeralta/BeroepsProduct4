@@ -34,6 +34,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class OverzichtBuurthuis extends AppCompatActivity {
 
+    public static final String EXTRA_MESSAGE = "Buurthuis";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +67,7 @@ public class OverzichtBuurthuis extends AppCompatActivity {
                 b.add(s);
 //                System.out.println(s);
 //                onItemClicked item = Adapter.getItemAtPosition(position);
-                Intent intent = new Intent(view.getContext(), SecondCursist.class);
+                Intent intent = new Intent(view.getContext(), SecondBuurthuis.class);
                 //TextView TextView = (TextView) findViewById(R.id.textView);
                 //String message = textView.getText().toString();
                 //based on item add info to intent
@@ -79,7 +81,7 @@ public class OverzichtBuurthuis extends AppCompatActivity {
     public void buildItems(String response) {
         try {
             Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(new StringReader(response)));
-            NodeList velden = doc.getElementsByTagName("buurthuis");
+            NodeList velden = doc.getElementsByTagName("buurthuiss");
             NodeList alVelden = (velden.item(0)).getChildNodes();
             ArrayList<Buurthuis> deVelden = new ArrayList<>();
             for (int i = 0; i < alVelden.getLength(); i++) {
@@ -90,8 +92,8 @@ public class OverzichtBuurthuis extends AppCompatActivity {
                 // check of er een tussenvoegsel
 
                 // check of er geen null value
-                nieuweBuurthuis.setNAAM(n.getChildNodes().item(5).getTextContent());
-                nieuweBuurthuis.setADRES(n.getChildNodes().item(0).getTextContent());
+                nieuweBuurthuis.setNAAM(n.getChildNodes().item(2).getTextContent());
+                nieuweBuurthuis.setADRES(n.getChildNodes().item(5).getTextContent());
 //                if()
 
 

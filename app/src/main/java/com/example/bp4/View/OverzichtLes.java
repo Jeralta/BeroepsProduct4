@@ -34,6 +34,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class OverzichtLes extends AppCompatActivity {
 
+    public static final String EXTRA_MESSAGE = "Les";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +71,7 @@ public class OverzichtLes extends AppCompatActivity {
                 //TextView TextView = (TextView) findViewById(R.id.textView);
                 //String message = textView.getText().toString();
                 //based on item add info to intent
-                intent.putParcelableArrayListExtra("IDLES", l);
+                intent.putParcelableArrayListExtra("WEEK", l);
                 startActivity(intent);
 
             }
@@ -79,30 +81,42 @@ public class OverzichtLes extends AppCompatActivity {
     public void buildItems(String response) {
         try {
             Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(new StringReader(response)));
-            NodeList velden = doc.getElementsByTagName("les");
+            NodeList velden = doc.getElementsByTagName("less");
             NodeList alVelden = (velden.item(0)).getChildNodes();
             ArrayList<Les> deVelden = new ArrayList<>();
             for (int i = 0; i < alVelden.getLength(); i++) {
                 Node n = alVelden.item(i);
                 Node name = n.getChildNodes().item(1);
                 String strName = name.getTextContent();
+                Node buurthuis = n.getChildNodes().item(0);
+                Node vrijwilliger = n.getChildNodes().item(5);
+                for(int j = 0; j< buurthuis.getChildNodes().getLength(); j++ ){
+                    String adres = buurthuis.getChildNodes().item(0).getTextContent();
+                    String telnr = buurthuis.getChildNodes().item(5).getTextContent();
+                }
+
+                for(int k = 0; k< vrijwilliger.getChildNodes().getLength(); k++ ){
+                    String achternaam = vrijwilliger.getChildNodes().item(0).getTextContent();
+                    String woonplaats = vrijwilliger.getChildNodes().item(4).getTextContent();
+                }
                 Les nieuweLes = new Les();
 
 
                 // check of er geen null value
-                nieuweLes.setIDLES(n.getChildNodes().item(5).getTextContent());
-                nieuweLes.setWEEK(n.getChildNodes().item(0).getTextContent());
+                nieuweLes.setIDLES(n.getChildNodes().item(2).getTextContent());
+                nieuweLes.setWEEK(n.getChildNodes().item(5).getTextContent());
                 nieuweLes.setUUR(n.getChildNodes().item(3).getTextContent());
 //                if()
 
-                nieuweLes.setDAG(n.getChildNodes().item(0).getTextContent());
-                nieuweLes.setVRIJWILLIGER_EMAIL(n.getChildNodes().item(1).getTextContent());
-                nieuweLes.setBUURTHUIS_TELNR(n.getChildNodes().item(4).getTextContent());
+                nieuweLes.setDAG(n.getChildNodes().item(1).getTextContent());
+                nieuweLes.setVRIJWILLIGER_EMAIL(n.getChildNodes().item(4).getTextContent());
+                nieuweLes.setBUURTHUIS_TELNR(n.getChildNodes().item(0).getTextContent());
 
 
                 deVelden.add(nieuweLes);
             }
             //ArrayAdapter<Cursist> CursistAdapter = new ArrayAdapter<Cursist>(this, android.R.layout.simple_list_item_1, deVelden);
+            //arrayadapter
             ArrayAdapter<Les> LesAdapter = new LesAdapter(this, deVelden);
             ListView lv = (ListView) findViewById(R.id.lv);
             lv.setAdapter(LesAdapter);

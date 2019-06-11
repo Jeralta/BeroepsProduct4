@@ -43,7 +43,7 @@ public class Vrijwilliger implements Parcelable {
     public Vrijwilliger (){
 
     }
-
+// getters and setters van strings
     public String getEMAIL() {
         return EMAIL;
     }

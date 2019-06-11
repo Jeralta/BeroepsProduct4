@@ -60,16 +60,16 @@ public class OverzichtVrijwilliger extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Cursist s = (Cursist)parent.getItemAtPosition(position);
-                ArrayList<Cursist>c = new ArrayList<>();
-                c.add(s);
+                Vrijwilliger s = (Vrijwilliger) parent.getItemAtPosition(position);
+                ArrayList<Vrijwilliger>v = new ArrayList<>();
+                v.add(s);
 //                System.out.println(s);
 //                onItemClicked item = Adapter.getItemAtPosition(position);
                 Intent intent = new Intent(view.getContext(), SecondVrijwilliger.class);
                 //TextView TextView = (TextView) findViewById(R.id.textView);
                 //String message = textView.getText().toString();
                 //based on item add info to intent
-                intent.putParcelableArrayListExtra("VOORNAAM", c);
+                intent.putParcelableArrayListExtra("VOORNAAM", v);
                 startActivity(intent);
 
             }
@@ -78,7 +78,7 @@ public class OverzichtVrijwilliger extends AppCompatActivity {
     public void buildItems(String response) {
         try {
             Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(new StringReader(response)));
-            NodeList velden = doc.getElementsByTagName("vrijwilliger");
+            NodeList velden = doc.getElementsByTagName("vrijwilligers");
             NodeList alVelden = (velden.item(0)).getChildNodes();
             ArrayList<Vrijwilliger> deVelden = new ArrayList<>();
             for (int i = 0; i < alVelden.getLength(); i++) {
@@ -89,15 +89,16 @@ public class OverzichtVrijwilliger extends AppCompatActivity {
                 // check of er een tussenvoegsel
 
                 // check of er geen null value
-                nieuweVrijwilliger.setVOORNAAM(n.getChildNodes().item(5).getTextContent());
-                nieuweVrijwilliger.setACHTERNAAM(n.getChildNodes().item(0).getTextContent());
+                nieuweVrijwilliger.setVOORNAAM(n.getChildNodes().item(0).getTextContent());
+                nieuweVrijwilliger.setACHTERNAAM(n.getChildNodes().item(1).getTextContent());
 //                if()
 
-                nieuweVrijwilliger.setTUSSENVOEGSEL(n.getChildNodes().item(0).getTextContent());
-                nieuweVrijwilliger.setEMAIL(n.getChildNodes().item(1).getTextContent());
-                nieuweVrijwilliger.setTELNR(n.getChildNodes().item(4).getTextContent());
+//                nieuweVrijwilliger.setTUSSENVOEGSEL(n.getChildNodes().item(5).getTextContent());
+                nieuweVrijwilliger.setEMAIL(n.getChildNodes().item(2).getTextContent());
+                nieuweVrijwilliger.setTELNR(n.getChildNodes().item(3).getTextContent());
 
-                nieuweVrijwilliger.setWOONPLAATS(n.getChildNodes().item(0).getTextContent());
+                nieuweVrijwilliger.setWOONPLAATS(n.getChildNodes().item(4).getTextContent());
+
                 deVelden.add(nieuweVrijwilliger);
             }
             //ArrayAdapter<Cursist> CursistAdapter = new ArrayAdapter<Cursist>(this, android.R.layout.simple_list_item_1, deVelden);

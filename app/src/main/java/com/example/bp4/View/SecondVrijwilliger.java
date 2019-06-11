@@ -11,7 +11,7 @@ import com.example.bp4.R;
 import java.util.ArrayList;
 
 public class SecondVrijwilliger extends AppCompatActivity {
-
+    // weergeven van resultaat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

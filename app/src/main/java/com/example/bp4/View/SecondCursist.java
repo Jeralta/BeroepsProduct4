@@ -10,7 +10,7 @@ import com.example.bp4.R;
 import java.util.ArrayList;
 
 public class SecondCursist extends AppCompatActivity {
-
+// weergeven van resultaat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

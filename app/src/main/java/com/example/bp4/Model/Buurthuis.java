@@ -24,6 +24,7 @@ public class Buurthuis implements Parcelable {
     private String POSTCODE;
     private String CONTACTPERSOON;
     private String PLAATS;
+
     public  Buurthuis (Parcel in){
         this.TELNR = in.readString();
         this.NAAM = in.readString();
@@ -43,7 +44,7 @@ public class Buurthuis implements Parcelable {
         this.CONTACTPERSOON = CONTACTPERSOON;
         this.PLAATS = PLAATS;
     }
-
+    // getters and setters van strings
     public String getTELNR() {
         return TELNR;
     }

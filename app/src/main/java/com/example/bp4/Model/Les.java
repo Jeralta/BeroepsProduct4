@@ -24,6 +24,7 @@ public class Les implements Parcelable {
     private String UUR;
     private String BUURTHUIS_TELNR;
     private String VRIJWILLIGER_EMAIL;
+
     public Les (Parcel in){
         this.IDLES = in.readString();
         this.WEEK = in.readString();
@@ -43,7 +44,7 @@ public Les(){}
         this.BUURTHUIS_TELNR = BUURTHUIS_TELNR;
         this.VRIJWILLIGER_EMAIL = VRIJWILLIGER_EMAIL;
     }
-
+    // getters and setters van strings
     public String getIDLES() {
         return IDLES;
     }
