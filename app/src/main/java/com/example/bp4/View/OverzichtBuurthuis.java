@@ -43,7 +43,7 @@ public class OverzichtBuurthuis extends AppCompatActivity {
         final TextView textView = (TextView) findViewById(R.id.textView);
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = " http://145.49.68.237:9221/Bp4Webapplicatie/webresources/bp4databasepackage.buurthuis ";
+        String url = " http://145.49.75.86:9221/Bp4Webservice/webresources/webservice.buurthuis ";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override

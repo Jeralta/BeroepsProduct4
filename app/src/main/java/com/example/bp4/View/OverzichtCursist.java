@@ -41,7 +41,7 @@ public class OverzichtCursist extends AppCompatActivity {
         final TextView textView = (TextView) findViewById(R.id.textView);
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = " http://145.49.68.237:9221/Bp4Webapplicatie/webresources/bp4databasepackage.cursist ";
+        String url = " http://145.49.75.86:9221/Bp4Webservice/webresources/webservice.cursist ";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
